@@ -21,6 +21,19 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(Artist_Display_Name__icontains=query) | Q(Medium__icontains=query)
             products = products.filter(queries)
 
+        if 'Period' in request.GET:
+            period = request.GET['Period']
+            if period == "edo":
+                period_search = "Edo period (1615–1868)"
+                products = products.filter(Period=period_search)
+            if period == "meiji":
+                period_search = "Meiji period (1868–1912)"
+                products = products.filter(Period=period_search)
+            if period == "taisho":
+                period_search = "Taishō period (1912–26)"
+                products = products.filter(Period=period_search)
+
+
     context = {
         'products': products,
         'search_term': query,
@@ -28,6 +41,7 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
+# Try boutique ado category approach
 
 def product_detail(request, product_id):
     """ A view to show individual product details """

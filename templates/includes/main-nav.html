@@ -5,9 +5,9 @@
                 Paintings
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-paintings-link">
-                <a href="" class="dropdown-item">Edo Period(1615-1868)</a>
-                <a href="" class="dropdown-item ">Meiji Period (1868-1912)</a>
-                <a href="" class="dropdown-item ">Taisho Period (1912-1926)</a>
+                <a href="{% url 'products' %}?Period=edo" class="dropdown-item">Edo Period(1615-1868)</a>
+                <a href="{% url 'products' %}?Period=meiji" class="dropdown-item ">Meiji Period (1868-1912)</a>
+                <a href="{% url 'products' %}?Period=taisho" class="dropdown-item ">Taisho Period (1912-1926)</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
