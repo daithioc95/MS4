@@ -21,18 +21,44 @@
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2"></div>
+            <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                <div class="sort-select-wrapper w-50">
+                    <select id="sort-selector"
+                        class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                        </option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low
+                            to high)</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                            (high to low)</option>
+                        <option value="Object_Begin_Date_asc"
+                            {% if current_sorting == 'Object_Begin_Date_asc' %}selected{% endif %}>Year (old to new)
+                        </option>
+                        <option value="Object_Begin_Date_desc"
+                            {% if current_sorting == 'Object_Begin_Date_desc' %}selected{% endif %}>Year (new to old)
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 order-md-first">
+                        <p class="text-muted mt-3 text-center text-md-left">
+                            {% if search_term or current_sorting != 'None_None' %}
+                                <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                            {% endif %}
+                            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                        </p>
+                    </div>
             <div class="card-columns">
                 <div class="row">
                     {% for product in products %}
                     <div class="card border-0">
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top" src="/media/MET-{{ product.pk }}.jpg"
-                                alt="{{ product.name }}">
+                            <img class="card-img-top" src="/media/MET-{{ product.pk }}.jpg" alt="{{ product.name }}">
                         </a>
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ product.name }}</p>
-                            <p class="mb-0">{{ product.Artist_Display_Name }}</p>
                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                            <p class="small mt-1 mb-0">{{ product.Artist_Display_Name }}</p>
                         </div>
                     </div>
                     {% endfor %}

@@ -10,6 +10,9 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    period = None
+    sort = None
+    direction = None
 
     if request.GET:
         if 'q' in request.GET:
@@ -20,6 +23,15 @@ def all_products(request):
             
             queries = Q(name__icontains=query) | Q(Artist_Display_Name__icontains=query) | Q(Medium__icontains=query)
             products = products.filter(queries)
+
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
 
         if 'Period' in request.GET:
             period = request.GET['Period']
@@ -33,10 +45,13 @@ def all_products(request):
                 period_search = "Taishō period (1912–26)"
                 products = products.filter(Period=period_search)
 
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': query,
+        'current_period': period,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
