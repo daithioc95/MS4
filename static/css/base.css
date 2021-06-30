@@ -10,6 +10,45 @@ body {
     font-family: 'Lato';
 }
 
+/* --------Footer--------- */
+#footer-social {
+    text-align: center;
+}
+
+.list-inline.social-links {
+    margin-bottom: 0;
+}
+
+.social-links {
+    padding-bottom: 15px;
+}
+
+.social-links li a i {
+    width: 40px;
+    height: 40px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 15px;
+    text-align: center;
+    color: white;
+    background: blue;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    margin: 20px 20px 15px 20px;
+}
+
+.social-links li a i:hover {
+    background: green;
+}
+
+footer {
+    background-color: white;
+    padding: 25px;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -75,6 +114,18 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -113,4 +164,12 @@ a.category-badge > span.badge:hover {
     body {
         height: calc(100vh - 116px);
     }
+}
+
+#delivery-banner h4{
+        font-size: .9rem;
+    }
+
+.products-row{
+    display: block;
 }
