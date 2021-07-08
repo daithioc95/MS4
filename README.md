@@ -5,6 +5,13 @@ The is an e-commerce website containing Ukiyo-e paintings. Visitors can browse t
 
 ### Startegy Plane
 #### Project Objectives
+- Provide information such as artist, period, medium, original dimensions etc. for the specific painting.
+- Provide information such as artist era, mediums used and nationality for specific artists.
+- Allow for visitors to have the option to purchase any paintings they like.
+- Produce an interactive site where users can browse and discover pictures they like.
+- Provide users with links to other sites so that they can discover further information on the paintings and artists they enjoy.
+- Allow for users to register, login and review their activity such as recent purchases.
+
 #### User Stories
 - As a visitor, I would like to browse ukiyo-e paintings, so that I can see if any appeal to me.
 - As a visitor, I would like to read information on individual paintings, so that I can  discover more about the piece.
