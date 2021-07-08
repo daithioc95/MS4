@@ -37,6 +37,8 @@
                         <option value="Object_Begin_Date-desc"
                             {% if current_sorting == 'Object_Begin_Date-desc' %}selected{% endif %}>Year (new to old)
                         </option>
+                        <option value="name-asc" {% if current_sorting == 'name-asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name-desc" {% if current_sorting == 'name-desc' %}selected{% endif %}>Name (Z-A)</option>
                     </select>
                 </div>
             </div>

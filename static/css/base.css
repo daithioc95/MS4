@@ -153,6 +153,8 @@ a.category-badge > span.badge:hover {
 /* masonary design */
 .card-columns{
         column-gap: 4.25rem;
+        /* change below for cards per column on mobile */
+        /* column-count: 2; */
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */

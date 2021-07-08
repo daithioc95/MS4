@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product
 
 # Create your views here.
@@ -45,7 +46,7 @@ def all_products(request):
                 period_search = "Taishō period (1912–26)"
                 products = products.filter(Period=period_search)
 
-    current_sorting = f'{sort}_{direction}'
+    current_sorting = f'{sort}-{direction}'
 
     context = {
         'products': products,
