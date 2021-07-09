@@ -39,12 +39,8 @@
                 {% for item in bag_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                {% else %}
-                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                {% endif %}
+                            <a href="{% url 'product_detail' item.product.pk %}">
+                                <img class="card-img-top" src="/media/MET-{{ item.product.pk }}.jpg" alt="{{ item.product.name }}">
                             </a>
                         </div>
                         <div class="col-7">
@@ -134,4 +130,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

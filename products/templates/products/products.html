@@ -55,7 +55,7 @@
                 <div class="row products-row">
                     {% for product in products %}
                     <div class="card border-0">
-                        <a href="{% url 'product_detail' product.id %}">
+                        <a href="{% url 'product_detail' product.pk %}">
                             <img class="card-img-top" src="/media/MET-{{ product.pk }}.jpg" alt="{{ product.name }}">
                         </a>
                         <div class="card-body pb-0">
