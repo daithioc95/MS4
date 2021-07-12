@@ -1,1 +1,1 @@
-web: gunicorn MS4.wsgi:application
+web: gunicorn ukiyo.wsgi:application
