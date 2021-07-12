@@ -4,6 +4,7 @@ from django.db import models
 class Product(models.Model):
     name = models.CharField(max_length=254, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=99)
+    description = models.TextField(null=True)
     Period = models.CharField(max_length=254, null=True, blank=True)
     Artist_Display_Name = models.CharField(max_length=254, null=True, blank=True)
     Artist_Display_Bio = models.CharField(max_length=254, null=True, blank=True)
