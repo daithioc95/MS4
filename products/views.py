@@ -45,22 +45,34 @@ def all_products(request):
             if period == "meiji":
                 period_search = "Meiji period (1868–1912)"
                 products = products.filter(Period=period_search)
-            if period == "taisho":
-                period_search = "Taishō period (1912–26)"
-                products = products.filter(Period=period_search)
 
     current_sorting = f'{sort}-{direction}'
 
     context = {
         'products': products,
         'search_term': query,
-        'current_period': period_search,
+        'current_period': period,
         'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
 
-# Try boutique ado category approach
+
+def all_artists(request):
+    display_names = []
+    for x in Product.objects.all():
+        display_names.append(x.Artist_Display_Name)
+        if str(x.Artist_Display_Name) not in display_names:
+            print("fresh")
+        else:
+            print(x.Artist_Display_Name)
+
+    context = {
+        # 'artists': artists,
+    }
+
+    return render(request, 'products/artists.html', context)
+
 
 def product_detail(request, product_id):
     """ A view to show individual product details """

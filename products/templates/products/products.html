@@ -15,7 +15,13 @@
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">Products</h2>
-            <h5>{{ current_period }}</h5>
+            {% if current_period == "edo" %}
+            <h5>Edo period (1615–1868)</h5>
+            {% elif current_period == "meiji" %}
+            <h5>Meiji period (1868–1912)</h5>
+            {% else %}
+            <h5>All Products</h5>
+            {% endif %}
             <hr class="w-50 mb-1">
         </div>
     </div>
