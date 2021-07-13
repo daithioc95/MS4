@@ -54,7 +54,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
-        'current_period': period,
+        'current_period': period_search,
         'current_sorting': current_sorting,
     }
 

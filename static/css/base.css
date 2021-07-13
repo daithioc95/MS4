@@ -375,3 +375,12 @@ a.category-badge > span.badge:hover {
 .products-row{
     display: block;
 }
+/* product detail */
+.external-links a{
+    overflow-wrap: break-word;
+}
+
+/* products page */
+.product-container img {
+    border-radius: 0.7rem;
+}
