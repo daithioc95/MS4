@@ -21,12 +21,11 @@
                 Artists
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="artists-link">
-                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Edo Period(1615-1868)</a>
-                <a href="{% url 'products' %}?sort=Object_Begin_Date&direction=asc" class="dropdown-item ">Meiji Period (1868-1912)</a>
-                <a href="" class="dropdown-item">All artists</a>
+                <a href="{% url 'artists' %}?Period=edo" class="dropdown-item">Edo Period(1615-1868)</a>
+                <a href="{% url 'artists' %}?Period=meiji" class="dropdown-item ">Meiji Period (1868-1912)</a>
+                <a href="{% url 'artists' %}" class="dropdown-item">All artists</a>
             </div>
         </li>
-
         <li class="nav-item">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link">
                 About

@@ -348,12 +348,15 @@ a.category-badge > span.badge:hover {
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
     }
-    .card-columns{
-        column-count: 1;
-        /* column-gap: 2.25rem !important; */
-}
+    
 }
 
+@media (max-width: 600px) {
+    .card-columns{
+            column-count: 1;
+            /* column-gap: 2.25rem !important; */
+    }
+}
 /* masonary design */
 .card-columns{
         column-gap: 4.25rem;
@@ -381,6 +384,16 @@ a.category-badge > span.badge:hover {
 }
 
 /* products page */
-.product-container img {
+.product-image {
     border-radius: 0.7rem;
+}
+
+/* Artist page */
+.artist-image {
+        height: 180px;
+    object-fit: cover;
+}
+
+.card-body{
+    padding-left: 0;
 }

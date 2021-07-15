@@ -11,24 +11,55 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="artists-cards container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">Artists</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
+
     <div class="row">
-        {% for artist in artists %}
-            {{ artist.Artist_Display_Name }}
-        {% endfor %}
+        <div class="product-container col-10 offset-1 ">
+            <div class="edo-artists row mt-1 mb-2 {% if period == " meiji" %}d-none{% endif %}">
+                <div class="col-12">
+                    <h3>Edo period Artists</h3>
+                </div>
+                {% for key, value in edo_artists.items %}
+                <div class="card col-4 border-0">
+
+                    <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+
+                    <div class="card-body">
+                        <p class="card-text">{{ key }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="meiji-artists row mt-1 mb-2 {% if period == " edo" %}d-none{% endif %}">
+                <div class="col-12">
+                    <h4>Meiji period Artists</h4>
+                </div>
+                {% for key, value in meiji_artists.items %}
+                <div class="card col-4 border-0">
+
+                    <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+
+                    <div class="card-body">
+                        <p class="card-text">{{ key }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
-</div>
-<div class="btt-button shadow-sm rounded-0 border border-black">
-    <a class="btt-link d-flex h-100">
-        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-    </a>
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
+    </div>
 </div>
 {% endblock %}
 

@@ -59,16 +59,24 @@ def all_products(request):
 
 
 def all_artists(request):
-    display_names = []
+    period = None
+    edo_artists = {}
+    meiji_artists = {}
     for x in Product.objects.all():
-        display_names.append(x.Artist_Display_Name)
-        if str(x.Artist_Display_Name) not in display_names:
-            print("fresh")
-        else:
-            print(x.Artist_Display_Name)
+        if x.Artist_Display_Name not in edo_artists:
+            if x.Period == "Edo period (1615–1868)":
+                edo_artists.update({x.Artist_Display_Name: x.image.url})
+        if x.Artist_Display_Name not in meiji_artists:
+            if x.Period == "Meiji period (1868–1912)":
+                meiji_artists.update({x.Artist_Display_Name: x.image.url})
+
+    if 'Period' in request.GET:
+            period = request.GET['Period']
 
     context = {
-        # 'artists': artists,
+        'edo_artists': edo_artists,
+        'meiji_artists': meiji_artists,
+        'period': period,
     }
 
     return render(request, 'products/artists.html', context)
