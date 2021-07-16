@@ -356,6 +356,21 @@ a.category-badge > span.badge:hover {
             column-count: 1;
             /* column-gap: 2.25rem !important; */
     }
+    .artist-info{
+        color: black;
+        /* height: 180px; */
+        /* max-height: 600px; */
+        display: inline;
+        padding: 0.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 38px;
+        width: 100%;
+    }
 }
 /* masonary design */
 .card-columns{
@@ -390,10 +405,70 @@ a.category-badge > span.badge:hover {
 
 /* Artist page */
 .artist-image {
-        height: 180px;
+        height: 250px;
     object-fit: cover;
 }
 
 .card-body{
     padding-left: 0;
+}
+
+.artist-welcome-image{
+    width: 100%;
+    max-height: 600px;
+    /* trial below for mobile*/
+    min-height: 300px;
+
+    opacity: 0.3;
+    object-fit: cover;
+}
+
+.artist-info{    
+    color: black;
+    height: 180px;
+    /* max-height: 600px; */
+    display: inline;
+    padding: 0.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 38px;
+}
+
+
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: black;
+    border-radius: 50%;
+    display: block;
+    margin: 7px auto;
+  }
+
+  .dots{
+    margin: 65px 0;
+  }
+@media (max-width: 600px) {
+        .artist-info{
+        color: black;
+        /* height: 180px; */
+        /* max-height: 600px; */
+        display: inline;
+        padding: 0.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 38px;
+        width: 100%;
+    }
+    .dots{
+        margin: 25px 0;
+      }
 }

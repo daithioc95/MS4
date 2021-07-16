@@ -82,6 +82,17 @@ def all_artists(request):
     return render(request, 'products/artists.html', context)
 
 
+def artist_detail(request, artist_name):
+    products = Product.objects.all().filter(Artist_Display_Name=artist_name)
+
+    context = {
+        'products': products,
+        'artist': artist_name
+    }
+
+    return render(request, 'products/artist_detail.html', context)
+
+
 def product_detail(request, product_id):
     """ A view to show individual product details """
 

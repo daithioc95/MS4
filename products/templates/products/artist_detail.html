@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+{% with products|first as product %}
+
+<div class="">
+
+    <img class="artist-welcome-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+    <div class="artist-info text-center">
+        <h2>{{ artist }}</h2>
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <h5 class="mt-10">{{ product.Artist_Display_Bio }}</h5>
+        <a href="{{ product.Artist_Wikidata_URL }}" target="_blank">
+            <h5 class="mt-2">Artist Wikkidata</h5>
+        </a>
+        <a href="{{ product.Artist_ULAN_URL }}" target="_blank">
+            <h5 class="mt-2">Artist getty</h5>
+        </a>
+    </div>
+    {% endwith %}
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">Products by {{ artist }}</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="product-container col-10 offset-1">
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        <span class="small"><a href="{% url 'artists' %}">Artists Home</a> | </span>
+                        {{ products|length }} Products by {{ artist }}
+                    </p>
+                </div>
+
+            </div>
+            <div class="card-columns">
+                <div class="row products-row">
+                    {% for product in products %}
+                    <div class="card border-0">
+                        {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="product-image card-img-top img-fluid" src="{{ product.image.url }}"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ product.name }}</p>
+                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                            <p class="small mt-1 mb-0">{{ product.Artist_Display_Name }}</p>
+                            {% if request.user.is_superuser %}
+                            <small class="ml-0">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-12">
+                <h3>Other Artists from this period</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+{% include 'products/includes/quantity_input_script.html' %}
+{% endblock %}

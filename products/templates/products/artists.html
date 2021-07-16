@@ -21,33 +21,38 @@
 
     <div class="row">
         <div class="product-container col-10 offset-1 ">
-            <div class="edo-artists row mt-1 mb-2 {% if period == " meiji" %}d-none{% endif %}">
+            <div class="edo-artists row mt-1 mb-2 {% if period == "meiji" %}d-none{% endif %}">
                 <div class="col-12">
                     <h3>Edo period Artists</h3>
                 </div>
                 {% for key, value in edo_artists.items %}
-                <div class="card col-4 border-0">
 
-                    <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
-
+                <div class="card col-lg-4 col-md-6 border-0">
+                    <a href="{% url 'artist_detail' key %}">
+                        <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+                    </a>
                     <div class="card-body">
-                        <p class="card-text">{{ key }}</p>
+                        <a href="{% url 'artist_detail' key %}">
+                            <p class="card-text">{{ key }}</p>
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
 
-            <div class="meiji-artists row mt-1 mb-2 {% if period == " edo" %}d-none{% endif %}">
+            <div class="meiji-artists row mt-1 mb-2 {% if period == "edo" %}d-none{% endif %}">
                 <div class="col-12">
                     <h4>Meiji period Artists</h4>
                 </div>
                 {% for key, value in meiji_artists.items %}
-                <div class="card col-4 border-0">
-
-                    <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
-
+                <div class="card col-lg-4 col-md-6 border-0">
+                    <a href="{% url 'artist_detail' key %}">
+                        <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+                    </a>
                     <div class="card-body">
-                        <p class="card-text">{{ key }}</p>
+                        <a href="{% url 'artist_detail' key %}">
+                            <p class="card-text">{{ key }}</p>
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
