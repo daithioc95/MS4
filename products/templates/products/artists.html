@@ -57,6 +57,23 @@
                 </div>
                 {% endfor %}
             </div>
+            <div class="other-artists row mt-1 mb-2 {% if not other_artists or period == "edo" or period == "meiji" %}d-none{% endif %}">
+                <div class="col-12">
+                    <h4>Other Artists</h4>
+                </div>
+                {% for key, value in other_artists.items %}
+                <div class="card col-lg-4 col-md-6 border-0">
+                    <a href="{% url 'artist_detail' key %}">
+                        <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <a href="{% url 'artist_detail' key %}">
+                            <p class="card-text">{{ key }}</p>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

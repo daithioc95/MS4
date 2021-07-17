@@ -75,7 +75,7 @@
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ product.name }}</p>
                             <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                            <p class="small mt-1 mb-0">{{ product.Artist_Display_Name }}</p>
+                            {% if product.Artist_Display_Name %}<p class="small mt-1 mb-0">{{ product.Artist_Display_Name }}</p>{% endif %}
                             {% if request.user.is_superuser %}
                             <small class="ml-0">
                                 <a href="{% url 'edit_product' product.id %}">Edit</a> |
