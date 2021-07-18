@@ -95,11 +95,15 @@ def artist_detail(request, artist_name):
     products = Product.objects.all().filter(Artist_Display_Name=artist_name)
 
     similar_artists = {}
-    for x in Product.objects.all():
-        for y in products:
-            if x.Period == y.Period:
-                if len(similar_artists) < 3:
-                    similar_artists.update({x.Artist_Display_Name: x.image.url})
+    try:
+        for x in Product.objects.all():
+            for y in products:
+                if x.Period == y.Period:
+                    if x.Artist_Display_Name != y.Artist_Display_Name:
+                        if len(similar_artists) < 3:
+                            similar_artists.update({x.Artist_Display_Name: x.image.url})
+    except:
+        pass
 
     context = {
         'products': products,
@@ -115,8 +119,11 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    other_products = Product.objects.all().filter(Artist_Display_Name=product.Artist_Display_Name)
+
     context = {
         'product': product,
+        'other_products': other_products,
     }
 
     return render(request, 'products/product_detail.html', context)

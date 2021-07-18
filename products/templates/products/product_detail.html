@@ -98,6 +98,45 @@
                 </div>
             </form>
         </div>
+
+        <div class="container {% if other_products|length <= 1 %}d-none{% endif %}">
+            <div class="row mt-1 mb-2">
+                <div class="col-12">
+                    <h4>Other works from this Artist</h4>
+                </div>
+                <div class="card-columns">
+                    <div class="row products-row">
+                {% for x in other_products %}
+                    {% if x.pk != product.pk %}
+                    <div class="card border-0">
+                        {% if x.image %}
+                        <a href="{% url 'product_detail' x.id %}">
+                            <img class="product-image card-img-top img-fluid" src="{{ x.image.url }}" alt="{{ x.name }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' x.id %}">
+                            <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ x.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ x.name }}</p>
+                            <p class="lead mb-0 text-left font-weight-bold">${{ x.price }}</p>
+                            {% if x.Artist_Display_Name %}<p class="small mt-1 mb-0">{{ x.Artist_Display_Name }}</p>{% endif %}
+                            {% if request.user.is_superuser %}
+                            <small class="ml-0">
+                                <a href="{% url 'edit_product' x.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' x.id %}">Delete</a>
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock %}
