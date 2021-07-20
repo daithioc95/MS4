@@ -363,8 +363,18 @@ a.category-badge > span.badge:hover {
     
 }
 
-@media (max-width: 600px) {
+
+/* masonary design */
+@media (min-width: 991px) {
     .card-columns{
+        column-count: 3;
+    }
+    .products-card-columns{
+        column-count: 4;
+    }
+}
+@media (max-width: 600px) {
+    .products-card-columns, .card-columns{
             column-count: 1;
             /* column-gap: 2.25rem !important; */
     }
@@ -384,8 +394,8 @@ a.category-badge > span.badge:hover {
         width: 100%;
     }
 }
-/* masonary design */
-.card-columns{
+
+.products-card-columns, .card-columns{
         column-gap: 4.25rem;
         /* change below for cards per column on mobile */
         /* column-count: 2; */
@@ -509,3 +519,75 @@ a.category-badge > span.badge:hover {
         transform: scale(1);
     }
 }
+
+/* For products page */
+.card{
+    display: inline-block;
+}
+
+.image-wrap {
+    position: relative;
+    /* width: 50%; */
+    /* cursor: pointer; */
+  }
+  
+  .product-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    /* background-color: #008CBA; */
+    /* background-color: black; */
+    border-radius: 0.7rem;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .image-wrap:hover .product-overlay {
+    opacity: 1;
+    
+  }
+  
+  /* .image-wrap:hover .product-image {
+    opacity: 0.3;
+  } */
+  
+
+  .text {
+    color: white !important;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .magnify-image-icon{}
+
+  .fa-pencil-alt{
+    color: #84dcf8;
+  }
+
+  .fa-trash-alt{
+    color: #e65c69;
+  }
+
+  .fa-search-plus:hover{
+      opacity: 0.6;
+      cursor: pointer;
+  }
+
+  /* image modal */

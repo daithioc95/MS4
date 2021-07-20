@@ -35,14 +35,16 @@
 </div>
 
 <div class="container-fluid">
+    <!-- Artist Products heading -->
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">Products by {{ artist }}</h2>
             <hr class="w-50 mb-1">
         </div>
     </div>
-    <div class="row">
 
+    <!-- Artist Products items -->
+    <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 order-md-first">
@@ -85,26 +87,36 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="row mt-1 mb-2 {% if not similar_artists %}d-none{% endif %}">
-                <div class="col-12">
-                    <h4>Similar Artists</h4>
-                </div>
-                {% for key, value in similar_artists.items %}
-                <div class="card col-lg-4 col-md-6 border-0">
-                    <a href="{% url 'artist_detail' key %}">
-                        <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <a href="{% url 'artist_detail' key %}">
-                            <p class="card-text">{{ key }}</p>
-                        </a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
         </div>
     </div>
 
+    <!-- Similar Artists Heading -->
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">Similar Artists</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+
+    <!-- Similar artist items -->
+    <div class="row mt-1 mb-2 {% if not similar_artists %}d-none{% endif %}">
+        <div class="product-container col-10 offset-1">
+            <div class="row">
+        {% for key, value in similar_artists.items %}
+        <div class="card col-lg-4 col-md-6 border-0">
+            <a href="{% url 'artist_detail' key %}">
+                <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <a href="{% url 'artist_detail' key %}">
+                    <p class="card-text">{{ key }}</p>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>
 </div>
 <div class="btt-button shadow-sm rounded-0 border border-black">
     <a class="btt-link d-flex h-100">
