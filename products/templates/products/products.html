@@ -63,39 +63,31 @@
                 <div class="row products-row">
                     {% for product in products %}
                     <div class="d-none d-lg-inline-block card border-0">
-                        {% if product.image %}
                         <div class="image-wrap">
+                            {% if product.image %}
                                 <img id="myImg" class="product-image card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                                <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            {% endif %}
                                 <div class="product-overlay">
                                     <div class="text text-white">
                                         <p><a class="text-white" href="{% url 'product_detail' product.id %}">{{ product.name }}</a></p>
                                         <p class="text-white">By</p>
                                         <p><a class="text-white" href="{% url 'artist_detail' product.Artist_Display_Name %}">{{ product.Artist_Display_Name }}</a></p>
-                                        <p class="magnify-image-icon mt-3 fa-lg"><i class="fas fa-search-plus"></i></p>
+                                        <p><a class="text-white"  href="{% if product.image %}{{ product.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank"><i class="fas fa-search-plus mt-3"></i></a></p>
+                                        {% if request.user.is_superuser %}
                                         <small class="ml-0">
                                             <a href="{% url 'edit_product' product.id %}"><i class="fas fa-pencil-alt"></i></a> |
                                             <a href="{% url 'delete_product' product.id %}"><i class="far fa-trash-alt"></i></a>
                                         </small>
-                                        <!-- <p><i class="fas fa-expand-alt"></i></p> -->
+                                        {% endif %}
                                     </div>
                                 </div>
                         </div>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
                         
                         <div class="card-body pb-3 pt-1">
                             <!-- <p class="mb-0">{{ product.name }}</p> -->
-                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                            <!-- {% if product.Artist_Display_Name %}<p class="small mt-1 mb-0">{{ product.Artist_Display_Name }}</p>{% endif %}
-                            {% if request.user.is_superuser %}
-                            <small class="ml-0">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                            </small>
-                            {% endif %} -->
+                            <p class="pricing mb-0 text-left font-weight-bold">${{ product.price }}</p>
                         </div>
                     </div>
 
@@ -168,27 +160,4 @@
         }
     })
 </script>
-
-<script type="text/javascript">
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-    }
-    
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() { 
-      modal.style.display = "none";
-    }
-    </script>
 {% endblock %}

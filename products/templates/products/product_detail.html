@@ -28,7 +28,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container mb-5 mt-md-5">
-                <p class="mb-0">{{ product.name }}</p>
+                <h5 class="mb-0"><strong>Title: </strong><br>{{ product.name }}</p>
                 <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                 <!-- <h4>Product Information</h4> -->
                 {% if product.Artist_Display_Name %}<p class="mt-3"><strong>Artist: </strong><br><a href="{% url 'artist_detail' product.Artist_Display_Name %}">{{ product.Artist_Display_Name }}</a></p>{% endif %}
@@ -38,9 +38,7 @@
                 <!-- <p class="mt-3">{{ product.Artist_Display_Name }}</p>
                     <p class="mt-3">{{ product.Artist_Display_Bio }}</p> -->
                 {% if product.Dimensions %}
-                <small class="text-muted">
                     <p class="mt-3"><strong>Dimensions: </strong><br>{{ product.Dimensions }}</p>
-                </small>
                 {% endif %}
                 <!-- <p class="mt-3">{{ product.Classification }}</p> -->
             </div>
@@ -107,36 +105,68 @@
         </div>
         <div class="row">
         <div class="product-container col-10 offset-1 {% if other_products|length <= 1 %}d-none{% endif %}">
-            
                 <div class="card-columns">
+
                     <div class="row products-row">
-                {% for x in other_products %}
-                    {% if x.pk != product.pk %}
-                    <div class="card border-0">
-                        {% if x.image %}
-                        <a href="{% url 'product_detail' x.id %}">
-                            <img class="product-image card-img-top img-fluid" src="{{ x.image.url }}" alt="{{ x.name }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' x.id %}">
-                            <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ x.name }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0">
-                            <p class="mb-0">{{ x.name }}</p>
-                            <p class="lead mb-0 text-left font-weight-bold">${{ x.price }}</p>
-                            {% if x.Artist_Display_Name %}<p class="small mt-1 mb-0">{{ x.Artist_Display_Name }}</p>{% endif %}
-                            {% if request.user.is_superuser %}
-                            <small class="ml-0">
-                                <a href="{% url 'edit_product' x.id %}">Edit</a> |
-                                <a class="text-danger" href="{% url 'delete_product' x.id %}">Delete</a>
-                            </small>
-                            {% endif %}
+                        {% for x in other_products %}
+                        {% if x.pk != product.pk %}
+                        <div class="d-none d-lg-inline-block card border-0">
+                            <div class="image-wrap">
+                                {% if x.image %}
+                                    <img id="myImg" class="product-image card-img-top img-fluid" src="{{ x.image.url }}" alt="{{ x.name }}">
+                                {% else %}
+                                    <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ x.name }}">
+                                {% endif %}
+                                    <div class="product-overlay">
+                                        <div class="text text-white">
+                                            <p><a class="text-white" href="{% url 'product_detail' x.id %}">{{ x.name }}</a></p>
+                                            <p class="text-white">By</p>
+                                            <p><a class="text-white" href="{% url 'artist_detail' x.Artist_Display_Name %}">{{ x.Artist_Display_Name }}</a></p>
+                                            <p><a class="text-white"  href="{% if x.image %}{{ x.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank"><i class="fas fa-search-plus mt-3"></i></a></p>
+                                            {% if request.user.is_superuser %}
+                                            <small class="ml-0">
+                                                <a href="{% url 'edit_product' x.id %}"><i class="fas fa-pencil-alt"></i></a> |
+                                                <a href="{% url 'delete_product' x.id %}"><i class="far fa-trash-alt"></i></a>
+                                            </small>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="card-body pb-3 pt-1">
+                                <!-- <p class="mb-0">{{ x.name }}</p> -->
+                                <p class="pricing mb-0 text-left font-weight-bold">${{ x.price }}</p>
+                            </div>
                         </div>
+    
+                        <div class="small-screens d-lg-none">
+                            <div class="card border-0">
+                                {% if x.image %}
+                                <a href="{% url 'product_detail' x.id %}">
+                                    <img class="product-image card-img-top img-fluid" src="{{ x.image.url }}" alt="{{ x.name }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'product_detail' x.id %}">
+                                    <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ x.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ x.name }}</p>
+                                    <p class="lead mb-0 text-left font-weight-bold">${{ x.price }}</p>
+                                    {% if x.Artist_Display_Name %}<p class="small mt-1 mb-0">{{ x.Artist_Display_Name }}</p>{% endif %}
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-0">
+                                        <a href="{% url 'edit_product' x.id %}">Edit</a> |
+                                        <a class="text-danger" href="{% url 'delete_product' x.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                {% endfor %}
-                    </div>
+
                 </div>
             </div>
         </div>
