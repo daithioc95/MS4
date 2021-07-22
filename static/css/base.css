@@ -3,6 +3,12 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Tourney:wght@100&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Neucha&family=Tourney:wght@900&display=swap');
 
+:root {
+    --themeBlue: #2b597a;
+    --themeTurq: #a1b9a8;
+    --themeYellow: #DABD83;
+  }
+
 html {
     height: 100%;
 }
@@ -11,7 +17,8 @@ body {
     background: url('/media/MET-36491.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    /* color: #555; */
+    color: var(--themeBlue);
     /* font-family: 'Lato'; */
     /* font-family: 'Zen Dots', cursive; */
     /* font-family: 'Tourney', cursive; */
@@ -42,7 +49,7 @@ body {
     line-height: 15px;
     text-align: center;
     color: white;
-    background: blue;
+    background: var(--themeBlue);
     transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     -webkit-transition: all 0.35s ease-in-out;
@@ -77,9 +84,12 @@ footer {
 }
 
 .shop-now-button {
-    background: black;
+    /* background: black;
+    color: white; */
+    /* min-width: 260px; */
+    background: var(--themeBlue);
     color: white;
-    min-width: 260px;
+    border: 3px solid var(--themeTurq);
 }
 
 .btn-black {
@@ -100,12 +110,16 @@ footer {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    /* background: #222;
+    color: white; */
+    background: var(--themeYellow);
+    color: var(--themeBlue);
+    border: 3px solid var(--themeBlue);
 }
 
 .text-black {
-    color: #000 !important;
+    /* color: #000 !important; */
+    color: var(--themeBlue) !important;
 }
 
 .border-black {
@@ -113,7 +127,7 @@ footer {
 }
 
 .bg-black {
-    background: #000 !important;
+    background: var(--themeBlue) !important;
 }
 
 .overlay {
@@ -340,6 +354,7 @@ a.category-badge > span.badge:hover {
     .navbar-toggler {
         padding: .6rem .6rem;
         font-size: 1rem;
+        background-color: var(--themeYellow);
     }
 
     #delivery-banner h4 {
@@ -379,7 +394,8 @@ a.category-badge > span.badge:hover {
             /* column-gap: 2.25rem !important; */
     }
     .artist-info{
-        color: black;
+        /* color: black; */
+        color: var(--themeBlue);
         /* height: 180px; */
         /* max-height: 600px; */
         display: inline;
@@ -449,7 +465,8 @@ a.category-badge > span.badge:hover {
 }
 
 .artist-info{    
-    color: black;
+    /* color: black; */
+    color: var(--themeBlue);
     height: 180px;
     /* max-height: 600px; */
     display: inline;
@@ -480,7 +497,8 @@ a.category-badge > span.badge:hover {
   }
 @media (max-width: 600px) {
         .artist-info{
-        color: black;
+        /* color: black; */
+        color: var(--themeBlue);
         /* height: 180px; */
         /* max-height: 600px; */
         display: inline;
@@ -501,12 +519,21 @@ a.category-badge > span.badge:hover {
 }
 
 .browse-text{
+    text-shadow: 3px 3px var(--themeBlue);
+    /* text-shadow: 2px 2px var(--themeTurq); */
+}
+
+.welcome-box{
     left: 60%;
 }
 
 @media (max-width: 600px) {
-    .browse-text{
-    left: 20%;
+    .welcome-box{
+    left: 40%;
+    top: 13%;
+}
+.browse-text{
+    font-size: 45px;
 }
 }
 
@@ -545,22 +572,37 @@ a.category-badge > span.badge:hover {
     right: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    /* opacity: 0; */
     transition: .5s ease;
     /* background-color: #008CBA; */
     /* background-color: black; */
     /* border-radius: 0.7rem;
     background: rgba(0, 0, 0, 0.3); */
   }
-  
+
+ 
+  @media (min-width: 992px) {
   .image-wrap:hover .product-overlay {
     opacity: 1;
+  }
+  .product-overlay {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 992px) {
+    .product-overlay {
+        display: none;
+      }
+  }
+
+ .show-box{
+    display: block;
   }
   
   /* .image-wrap:hover .product-image {
     opacity: 0.3;
   } */
-  
 
   .text {
     color: white !important;
@@ -580,6 +622,7 @@ a.category-badge > span.badge:hover {
     /* width: 100%; */
     background: rgba(0, 0, 0, 0.5);
     padding: 1rem;
+    min-width: 65%;
   }
 
 .low-height{
@@ -604,3 +647,11 @@ a.category-badge > span.badge:hover {
  .pricing{
      font-size: 30px;
  }
+
+ .mobile-product-info{
+    float: right;
+ }
+
+.info-icon-on{
+    color: #28bbb2;
+}

@@ -110,14 +110,19 @@
                     <div class="row products-row">
                         {% for x in other_products %}
                         {% if x.pk != product.pk %}
-                        <div class="d-none d-lg-inline-block card border-0">
+                        <div class="card border-0">
                             <div class="image-wrap">
                                 {% if x.image %}
+                                <a href="{% url 'product_detail' x.id %}">
                                     <img id="myImg" class="product-image card-img-top img-fluid" src="{{ x.image.url }}" alt="{{ x.name }}">
+                                </a>
                                 {% else %}
+                                <a href="{% url 'product_detail' x.id %}">
                                     <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ x.name }}">
+                                </a>
                                 {% endif %}
-                                    <div class="product-overlay">
+                                    <i id="{{ x.id }}" class="fas fa-info-circle mobile-product-info d-lg-none fa-lg mt-2"></i>
+                                    <div id="{{ x.id }}-mobile-overlay" class="product-overlay">
                                         <div class="text text-white">
                                             <p><a class="text-white" href="{% url 'product_detail' x.id %}">{{ x.name }}</a></p>
                                             <p class="text-white">By</p>
@@ -138,31 +143,6 @@
                                 <p class="pricing mb-0 text-left font-weight-bold">${{ x.price }}</p>
                             </div>
                         </div>
-    
-                        <div class="small-screens d-lg-none">
-                            <div class="card border-0">
-                                {% if x.image %}
-                                <a href="{% url 'product_detail' x.id %}">
-                                    <img class="product-image card-img-top img-fluid" src="{{ x.image.url }}" alt="{{ x.name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'product_detail' x.id %}">
-                                    <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ x.name }}">
-                                </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ x.name }}</p>
-                                    <p class="lead mb-0 text-left font-weight-bold">${{ x.price }}</p>
-                                    {% if x.Artist_Display_Name %}<p class="small mt-1 mb-0">{{ x.Artist_Display_Name }}</p>{% endif %}
-                                    {% if request.user.is_superuser %}
-                                    <small class="ml-0">
-                                        <a href="{% url 'edit_product' x.id %}">Edit</a> |
-                                        <a class="text-danger" href="{% url 'delete_product' x.id %}">Delete</a>
-                                    </small>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
                         {% endif %}
                         {% endfor %}
                     </div>
@@ -175,5 +155,13 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    $("i.fa-info-circle").click(function(ev){
+      var product_id = "#" + $(this).attr('id')
+      $(product_id).toggleClass("info-icon-on");
+      var textbox = "#" + $(this).attr('id') + "-mobile-overlay"
+      $(textbox).toggleClass("show-box");
+  })
+  </script>
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
