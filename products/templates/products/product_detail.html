@@ -124,10 +124,9 @@
                                     <i id="{{ x.id }}" class="fas fa-info-circle mobile-product-info d-lg-none fa-2x mt-2"></i>
                                     <div id="{{ x.id }}-mobile-overlay" class="product-overlay">
                                         <div class="text text-white">
-                                            <p><a class="text-white" href="{% url 'product_detail' x.id %}">{{ x.name }}</a></p>
+                                            <p><a class="text-white" href="{% url 'product_detail' x.id %}" {% if x.name|length > 32 %}title="{{ x.name }}"{% endif %}>{{ x.name|truncatechars:32 }}</a></p>
                                             <p class="text-white">By</p>
                                             <p><a class="text-white" href="{% url 'artist_detail' x.Artist_Display_Name %}">{{ x.Artist_Display_Name }}</a></p>
-                                            <p><a class="text-white"  href="{% if x.image %}{{ x.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank"><i class="fas fa-search-plus mt-3"></i></a></p>
                                             {% if request.user.is_superuser %}
                                             <small class="ml-0">
                                                 <a href="{% url 'edit_product' x.id %}"><i class="fas fa-pencil-alt"></i></a> |
@@ -155,6 +154,20 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    // https://stackoverflow.com/questions/21121957/add-class-based-on-height-of-element
+    function low_height_image() {
+        $(".product-overlay").each(function () { // do this for each matched item
+            if ($(this).height() < 225) { // search for <p> in context of current element
+                $("p", this).addClass('low-height');
+                console.log("Added "+$(this).height());
+            }
+            else{
+                console.log("skip")
+            }
+        })
+    };
+</script>
 <script type="text/javascript">
     $("i.fa-info-circle").click(function(ev){
       var product_id = "#" + $(this).attr('id')

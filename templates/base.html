@@ -36,12 +36,12 @@
 
     <title>Ukiyo-e {% block extra_title %}{% endblock %}</title>
   </head>
-  <body>
+  <body {% if request.resolver_match.url_name == "product_detail" or request.resolver_match.url_name == "products" or request.resolver_match.url_name == "artist_detail" %}onload="low_height_image();"{% endif %}>
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Ukiyo-e</strong></h2>
+                    <h2 class="logo-font text-black my-0"><strong>{{ request.resolver_match.url_name }}Ukiyo-e</strong></h2>
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">

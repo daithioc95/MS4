@@ -76,10 +76,10 @@
                                 <i id="{{ product.id }}" class="fas fa-info-circle mobile-product-info d-lg-none fa-2x mt-2"></i>
                                 <div id="{{ product.id }}-mobile-overlay" class="product-overlay">
                                     <div class="text text-white">
-                                        <p><a class="text-white" href="{% url 'product_detail' product.id %}">{{ product.name }}</a></p>
+                                        <p><a class="text-white" href="{% url 'product_detail' product.id %}" {% if product.name|length > 25 %}title="{{ product.name }}"{% endif %}>{{ product.name|truncatechars:25 }}</a></p>
                                         <p class="text-white">By</p>
                                         <p><a class="text-white" href="{% url 'artist_detail' product.Artist_Display_Name %}">{{ product.Artist_Display_Name }}</a></p>
-                                        <p><a class="text-white"  href="{% if product.image %}{{ product.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank"><i class="fas fa-search-plus mt-3"></i></a></p>
+                                        <!-- <p><a class="text-white"  href="{% if product.image %}{{ product.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank"><i class="fas fa-search-plus mt-3"></i></a></p> -->
                                         {% if request.user.is_superuser %}
                                         <small class="ml-0">
                                             <a href="{% url 'edit_product' product.id %}"><i class="fas fa-pencil-alt"></i></a> |
@@ -111,7 +111,20 @@
 
 {% block postloadjs %}
 {{ block.super }}
-
+<script type="text/javascript">
+    // https://stackoverflow.com/questions/21121957/add-class-based-on-height-of-element
+    function low_height_image() {
+        $(".product-overlay").each(function () { // do this for each matched item
+            if ($(this).height() < 170) { // search for <p> in context of current element
+                $("p", this).addClass('low-height');
+                console.log("Added "+$(this).height());
+            }
+            else{
+                console.log("skip")
+            }
+        })
+    };
+</script>
 <script type="text/javascript">
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)

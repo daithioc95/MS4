@@ -588,6 +588,12 @@ a.category-badge > span.badge:hover {
     /* background-color: black; */
     /* border-radius: 0.7rem;
     background: rgba(0, 0, 0, 0.3); */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 5px solid var(--themeYellow);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.7rem;
   }
 
  
@@ -626,22 +632,18 @@ a.category-badge > span.badge:hover {
     text-align: center;
     /* fix for small height products */
     z-index: 10;
-    border-radius: 0.7rem;
     /* border: 3px solid #28bbb2; */
-    border: 3px solid var(--themeYellow);
-    /* width: 100%; */
-    background: rgba(0, 0, 0, 0.5);
     padding: 1rem;
-    min-width: 65%;
+    /* min-width: 65%; */
+    /* cover entire image */
+    white-space: nowrap;
   }
 
 .low-height{
-    border-radius: 0.7rem;
-    /* border: 3px solid #28bbb2; */
-    border: 3px solid var(--themeYellow);
-    /* width: 100%; */
-    background: rgba(0, 0, 0, 0.5);
+    /* line-height: 25%; */
+    margin-bottom: 0;
 }
+
 
   .fa-pencil-alt{
     color: #84dcf8;
