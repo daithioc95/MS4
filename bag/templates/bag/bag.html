@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col">
                             {% include "bag/checkout-buttons.html" %}
-                            <p class="text-muted mb-5">A summary of your bag contents is below</p>
+                            <p class="text-black mb-5">A summary of your bag contents is below</p>
                         </div>
                     </div>
                     {% for item in bag_items %}
@@ -81,13 +81,13 @@
                                     {% include "bag/product-info.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ item.product.price }}</p>
+                                    <p class="text-black my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
                                     {% include "bag/quantity-form.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    <p class="text-black my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                             </tr>
                         {% endfor %}

@@ -13,6 +13,10 @@ html {
     height: 100%;
 }
 
+h1, h2, h3, h4, h5, h6{
+    color: var(--themeBlue);
+}
+
 body {
     background: url('/media/MET-36491.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -95,6 +99,10 @@ footer {
 .btn-black {
     background: var(--themeBlue);
     color: white;
+}
+
+.btn-outline-black{
+    color: var(--themeBlue);
 }
 
 .btn-outline-black:hover,
@@ -653,7 +661,11 @@ a.category-badge > span.badge:hover {
     color: #e65c69;
   }
 
-.fa-pencil-alt:hover, .fa-trash-alt:hover, .fa-search-plus:hover{
+  .fa-search-plus{
+      color: var(--themeBlue);
+  }
+
+.fa-pencil-alt:hover, .fa-trash-alt:hover{
       opacity: 0.6;
   }
 
@@ -661,11 +673,23 @@ a.category-badge > span.badge:hover {
      font-size: 30px;
  }
 
- .mobile-product-info{
+ .mobile-product-info, .zoom-icon{
     float: right;
  }
 
 .info-icon-on{
     /* color: #28bbb2; */
     color: var(--themeYellow);
+}
+
+.detail-image:hover {
+    cursor: zoom-in;
+}
+
+.zoom-icon:active {
+    color: var(--themeYellow);
+}
+
+.bg-warning {
+    background-color: var(--themeYellow) !important;
 }

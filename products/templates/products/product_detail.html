@@ -17,13 +17,16 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid detail-image" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid detail-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
+                <a href={% if product.image %}"{{ product.image.url }}"{% else %}"{{ MEDIA_URL }}noimage.png"{% endif %} target="_blank">
+                    <i class="fas fa-search-plus d-lg-none zoom-icon fa-2x mt-2"></i>
+                </a>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -97,6 +100,7 @@
             </form>
         </div>
     </div>
+        {% if other_products > 1 %}
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Other works from this Artist</h2>
@@ -149,6 +153,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 {% endblock %}
 
