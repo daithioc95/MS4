@@ -12,25 +12,26 @@
 {% block content %}
 <div class="overlay"></div>
 {% with products|first as product %}
-
 <div class="">
 
     <img class="artist-welcome-image" src="{{ product.image.url }}" alt="{{ product.name }}">
     <div class="artist-info text-center">
-        <h2>{{ artist }}</h2>
-        <div class="dots">
+        <h2 class="mb-3">{{ artist }}</h2>
+        <!-- <div class="dots">
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
-        </div>
-        {% if product.Artist_Display_Bio %}<h5 class="mt-10">{{ product.Artist_Display_Bio }}</h5>{% endif %}
+        </div> -->
+        {% if product.Artist_Display_Bio %}<h5 class="artist-detail mt-10"><strong>Bio: </strong>{{ product.Artist_Display_Bio }}</h5>{% endif %}
+        {% if product.Medium %}<h5 class="artist-detail mt-10"><strong>Mediums: </strong>{{ product.Medium }}</h5>{% endif %}
         {% if product.Artist_Wikidata_URL %}<a href="{{ product.Artist_Wikidata_URL }}" target="_blank">
-            <h5 class="mt-2">Artist Wikkidata</h5>
+            <h5 class="artist-detail mt-2">Artist Wikkidata</h5>
         </a>{% endif %}
         {% if product.Artist_ULAN_URL %}<a href="{{ product.Artist_ULAN_URL }}" target="_blank">
-            <h5 class="mt-2">Artist getty</h5>
+            <h5 class="artist-detail mt-2">Artist getty</h5>
         </a>{% endif %}
     </div>
+    
     {% endwith %}
 </div>
 
