@@ -741,3 +741,29 @@ h5.artist-detail {
     height: 90% !important;
 }
 
+/* test */
+
+.artist-overlay-text{
+    text-align: center;
+    text-shadow: 1px 1px var(--themeBlue);
+    position: absolute;
+    margin: 0px auto;
+    top: 45%;
+    left: 0;
+    right: 0;
+    font-size: 1.5rem;
+}
+
+
+.card:hover .artist-overlay-text{
+    -webkit-transition: font-size .5s ease;
+  -moz-transition: font-size .5s ease;
+  -o-transition: font-size .5s ease;
+  transition: font-size .5s ease;
+  font-size: 200%;
+  /* text-decoration: underline; */
+}
+
+.artist-card{
+    position: relative;
+}
