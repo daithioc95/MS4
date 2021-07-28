@@ -5,7 +5,8 @@
 
 :root {
     --themeBlue: #2b597a;
-    --themeTurq: #a1b9a8;
+    --themeLightBlue: #a1b9a8;
+    --themeTurq: #17a2b8;
     --themeYellow: #DABD83;
   }
 
@@ -97,7 +98,7 @@ footer {
     /* min-width: 260px; */
     background: var(--themeBlue);
     color: white;
-    border: 3px solid var(--themeTurq);
+    border: 3px solid var(--themeLightBlue);
 }
 
 .btn-black {
@@ -555,7 +556,7 @@ h5.artist-detail {
 
 .browse-text{
     text-shadow: 3px 3px var(--themeBlue);
-    /* text-shadow: 2px 2px var(--themeTurq); */
+    /* text-shadow: 2px 2px var(--themeLightBlue); */
 }
 
 .welcome-box{
@@ -723,7 +724,7 @@ h5.artist-detail {
 
 .homepage-product{
     /* top: 90%; */
-    text-shadow: 1px 1px var(--themeTurq);
+    text-shadow: 1px 1px var(--themeLightBlue);
     /* bottom: 0; */
     /* height: 10px; */
     /* margin-bottom: 2px; */
