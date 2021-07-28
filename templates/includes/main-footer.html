@@ -1,4 +1,7 @@
 <footer>
+    {% if request.resolver_match.url_name == "home" %}
+    <span><a href="{% url 'product_detail' 36491 %}"><i class="far fa-image"></i> Go to cover image page</a></span>
+    {% endif %}
     <div id="footer-social" class="col-12">
         <h5 class="uppercase general-sub">Social</h5>
         <ul class="list-inline social-links">
