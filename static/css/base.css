@@ -560,12 +560,14 @@ h5.artist-detail {
 
 .welcome-box{
     left: 60%;
+    /* left: 45%; */
 }
 
 @media (max-width: 600px) {
     .welcome-box{
     left: 40%;
     top: 13%;
+    text-align: center;
 }
 .browse-text{
     font-size: 45px;
@@ -710,3 +712,32 @@ h5.artist-detail {
 .bg-warning {
     background-color: var(--themeYellow) !important;
 }
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+.homepage-product{
+    /* top: 90%; */
+    text-shadow: 1px 1px var(--themeTurq);
+    /* bottom: 0; */
+    /* height: 10px; */
+    /* margin-bottom: 2px; */
+}
+
+/* .homepage-product a{
+    color: var(--themeBlue);
+} */
+
+.homepage-product a:hover{
+    color: white;
+}
+
+.h-90{
+    height: 90% !important;
+}
+
