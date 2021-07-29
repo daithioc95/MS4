@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col">
                             {% include "bag/checkout-buttons.html" %}
-                            <p class="text-black mb-5">A summary of your bag contents is below</p>
+                            <p class="text-navy mb-5">A summary of your bag contents is below</p>
                         </div>
                     </div>
                     {% for item in bag_items %}
@@ -52,17 +52,19 @@
                                 {% include "bag/quantity-form.html" %}
                             </div>
                         </div>
+                        {% if not forloop.last %}
                         <div class="row"><div class="col"><hr></div></div>
+                        {% endif %}
                     {% endfor %}
                     <div class="btt-button shadow-sm rounded-0 border border-black">
                         <a class="btt-link d-flex h-100">
-                            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                            <i class="fas fa-arrow-up text-navy mx-auto my-auto"></i>
                         </a>	
                     </div>
                 </div>
                 <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm table-borderless">
-                        <thead class="text-black">
+                        <thead class="text-navy">
                             <tr>
                                 <th scope="col">Product Info</th>
                                 <th scope="col"></th>
@@ -81,13 +83,13 @@
                                     {% include "bag/product-info.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="text-black my-0">${{ item.product.price }}</p>
+                                    <p class="text-navy my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
                                     {% include "bag/quantity-form.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="text-black my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    <p class="text-navy my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -105,7 +107,7 @@
                 </div>
                 {% else %}
                     <p class="lead mb-5">Your bag is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <a href="{% url 'products' %}" class="btn btn-outline-navy rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
