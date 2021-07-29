@@ -755,16 +755,24 @@ h5.artist-detail {
     font-size: 1.5rem;
 }
 
-
+/* https://codepen.io/Itsca/pen/atmGB */
 .card:hover .artist-overlay-text{
     -webkit-transition: font-size .5s ease;
-  -moz-transition: font-size .5s ease;
-  -o-transition: font-size .5s ease;
-  transition: font-size .5s ease;
-  font-size: 200%;
-  /* text-decoration: underline; */
+    -moz-transition: font-size .5s ease;
+    -o-transition: font-size .5s ease;
+    transition: font-size .5s ease;
+    font-size: 200%;
+    /* text-decoration: underline; */
 }
 
 .artist-card{
     position: relative;
+}
+
+.about {
+    font-size: 1.5rem;
+}
+
+.product-details-container a{
+    overflow-wrap: break-word;
 }

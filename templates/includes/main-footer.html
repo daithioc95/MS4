@@ -1,9 +1,9 @@
+<hr class="w-100 mb-3">
 <footer>
     {% if request.resolver_match.url_name != "home" %}
-    <hr class="w-100 mb-3">
     {% endif %}
     {% if request.resolver_match.url_name == "home" %}
-    <a href="{% url 'product_detail' 36491 %}"><i class="far fa-image"><span> Go to cover image page</span></i></a>
+    <a href="{% url 'product_detail' 36491 %}"><p><i class="far fa-image"> Go to cover image page</i></p></a>
     {% endif %}
     <div id="footer-social" class="col-12">
         <h5 class="uppercase general-sub">Social</h5>
