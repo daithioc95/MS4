@@ -16,6 +16,7 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container">
+    <!-- Order confitmation text -->
     <div class="row">
         <div class="col">
             <hr>
@@ -25,6 +26,7 @@
             </p>
         </div>
     </div>
+    <!-- order details -->
     <div class="row">
         <div class="col-12 col-lg-7">
             <div class="order-confirmation-wrapper p-2 border">
@@ -33,7 +35,7 @@
                         <small class="text-navy">Order Info:</small>
                     </div>
                 </div>
-
+                <!-- order admin details -->
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="mb-0 text-navy font-weight-bold">Order Number</p>
@@ -57,7 +59,7 @@
                         <small class="text-navy">Order Details:</small>
                     </div>
                 </div>
-
+                <!-- Order product details -->
                 {% for item in order.lineitems.all %}
                 <div class="row">
                     <div class="col-12 col-md-4">
@@ -70,7 +72,7 @@
                     </div>
                 </div>
                 {% endfor %}
-
+                <!-- Order delivery details -->
                 <div class="row">
                     <div class="col">
                         <small class="text-navy">Delivering To:</small>
@@ -160,7 +162,7 @@
                         <small class="text-navy">Billing Info:</small>
                     </div>
                 </div>
-
+                <!-- order pricing details -->
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="mb-0 text-navy font-weight-bold">Order Total</p>
@@ -190,22 +192,23 @@
             </div>
         </div>
     </div>
+    <!-- redirect links -->
     <div class="row">
         <div class="col-12 col-lg-7 text-right">
             {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn btn-navy rounded-0 my-2">
-                    <span class="icon mr-2">
-                        <i class="fas fa-angle-left"></i>
-                    </span>
-                    <span class="text-uppercase">Back to Profile</span>
-                </a>
+            <a href="{% url 'profile' %}" class="btn btn-navy rounded-0 my-2">
+                <span class="icon mr-2">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span class="text-uppercase">Back to Profile</span>
+            </a>
             {% else %}
-                <a href="{% url 'products' %}" class="btn btn-navy rounded-0 my-2">
-                    <span class="icon mr-2">
-                        <i class="fas fa-gifts"></i>
-                    </span>
-                    <span class="text-uppercase">Now check out the latest deals!</span>
-                </a>
+            <a href="{% url 'products' %}" class="btn btn-navy rounded-0 my-2">
+                <span class="icon mr-2">
+                    <i class="fas fa-gifts"></i>
+                </span>
+                <span class="text-uppercase">Now check out the latest deals!</span>
+            </a>
             {% endif %}
         </div>
     </div>
