@@ -14,7 +14,11 @@
 {% with products|first as product %}
 <div class="">
 
-    <img class="artist-welcome-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% if product.image %}
+        <img class="artist-welcome-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% else %}
+        <div class="artist-welcome-no-image">
+    {% endif %}
     <div class="artist-info text-center">
         <h2 class="mb-3">{{ artist }}</h2>
         <!-- <div class="dots">
@@ -76,7 +80,7 @@
                                     <div class="text text-white">
                                         <p><a class="text-white" href="{% url 'product_detail' product.id %}" {% if product.name|length > 32 %}title="{{ product.name }}"{% endif %}>{{ product.name|truncatechars:32 }}</a></p>
                                         <p class="text-white">By</p>
-                                        <p><a class="text-white" href="{% url 'artist_detail' product.Artist_Display_Name %}">{{ product.Artist_Display_Name }}</a></p>
+                                        <p class="text-white">{{ product.Artist_Display_Name }}</p>
                                         {% if request.user.is_superuser %}
                                         <small class="ml-0">
                                             <a href="{% url 'edit_product' product.id %}"><i class="fas fa-pencil-alt"></i></a> |

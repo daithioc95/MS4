@@ -19,3 +19,6 @@ The is an e-commerce website containing Ukiyo-e paintings. Visitors can browse t
 - As a visitor, I would like to search by keywords, so that I can discover paintings depending on my specific tastes.
 - As a visitor, I would like to add items to my basket and purchase, so that I can enjoy the prints in real life.
 - As a visitor, I would like to create an account, so that I can keep track of my purchases and activity.
+- As a store owner, I would like to add products where needed to allow for the most up to date information and products are supplied for sale.
+- As a store owner, I would like to edit products where needed to allow for the most up to date information and products are supplied for sale.
+- As a store owner, I would like to delete products where needed to allow for the most up to date information and products are supplied for sale.
