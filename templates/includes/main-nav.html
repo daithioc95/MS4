@@ -1,14 +1,17 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
+        <!-- home option -->
         <li class="nav-item d-block d-md-none">
             <a class="logo-font font-weight-bold nav-link text-navy mr-5" href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
         <li class="nav-item dropdown">
+            <!-- products dropdown -->
             <a class="logo-font font-weight-bold nav-link text-navy mr-5" href="#" id="all-paintings-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Products
             </a>
+            <!-- dropdown options -->
             <div class="dropdown-menu border-0" aria-labelledby="all-paintings-link">
                 <a href="{% url 'products' %}?Period=edo" class="text-navy dropdown-item">Edo Period(1615-1868)</a>
                 <a href="{% url 'products' %}?Period=meiji" class="text-navy dropdown-item ">Meiji Period (1868-1912)</a>
@@ -17,15 +20,18 @@
         </li>
 
         <li class="nav-item dropdown">
+            <!-- artists dropdown -->
             <a class="logo-font font-weight-bold nav-link text-navy mr-5" href="#" id="artists-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Artists
             </a>
+            <!-- dropdown options -->
             <div class="dropdown-menu border-0" aria-labelledby="artists-link">
                 <a href="{% url 'artists' %}?Period=edo" class="text-navy dropdown-item">Edo Period(1615-1868)</a>
                 <a href="{% url 'artists' %}?Period=meiji" class="text-navy dropdown-item ">Meiji Period (1868-1912)</a>
                 <a href="{% url 'artists' %}" class="text-navy dropdown-item">All artists</a>
             </div>
         </li>
+        <!-- about link -->
         <li class="nav-item">
             <a class="logo-font font-weight-bold nav-link text-navy mr-5" href="{% url 'about' %}" id="homeware-link">
                 About

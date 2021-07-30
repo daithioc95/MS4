@@ -1,4 +1,5 @@
 <li class="list-inline-item">
+    <!-- home option -->
     <a class="text-navy nav-link d-block d-lg-none" href="{% url 'home' %}" id="mobile-home">
         <div class="text-center">
             <div><i class="fas fa-home fa-lg"></i></div>
@@ -7,12 +8,14 @@
     </a>
 </li>
 <li class="list-inline-item">
+    <!-- searchbar appear button -->
     <a class="text-navy nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-search fa-lg"></i></div>
             <p class="my-0">Search</p>
         </div>
     </a>
+    <!-- searchbar -->
     <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
         <form class="form" method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
@@ -28,6 +31,7 @@
         </form>
     </div>
 </li>
+<!-- account items -->
 <li class="list-inline-item dropdown">
     <a class="text-navy nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
@@ -48,6 +52,7 @@
         {% endif %}
     </div>
 </li>
+<!-- bag items -->
 <li class="list-inline-item">
     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-navy{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
         <div class="text-center">
@@ -61,4 +66,4 @@
             </p>
         </div>
     </a>
-  </li>
+</li>

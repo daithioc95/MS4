@@ -8,7 +8,6 @@ class Product(models.Model):
     Period = models.CharField(max_length=254, null=True, blank=True)
     Artist_Display_Name = models.CharField(max_length=254, null=True, blank=True)
     Artist_Display_Bio = models.CharField(max_length=254, null=True, blank=True)
-    # Artist_Alpha_Sort = models.CharField(max_length=254, null=True, blank=True)
     Artist_Nationality = models.CharField(max_length=254, null=True, blank=True)
     Artist_Begin_Date = models.CharField(max_length=254, null=True, blank=True)
     Artist_End_Date = models.CharField(max_length=254, null=True, blank=True)
@@ -33,7 +32,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-# pk,model,name,Period,price,Artist_Display_Name,Artist_Display_Bio,Artist_Alpha_Sort,Artist_Nationality,Artist_Begin_Date,Artist_End_Date,Artist_ULAN_URL,Artist_Wikidata_URL,Object_Date,Object_Begin_Date,Object_End_Date,Medium,Dimensions,Credit_Line,Classification,Link_Resource,Object_Wikidata_URL,Tags,Tags_AAT_URL,Tags_Wikidata_URL
-# Periods: Edo Period(1615-1868), Meiji Period (1868-1912)
-# Remove Artist_Alpha_Sort before migrating new batch

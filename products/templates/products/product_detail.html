@@ -142,7 +142,7 @@
                             <!-- product info overlay -->
                             <div id="{{ x.id }}-mobile-overlay" class="product-overlay">
                                 <div class="text text-white">
-                                    <p><a class="text-white" href="{% url 'product_detail' x.id %}" {% if x.name|length> 32 %}title="{{ x.name }}"{% endif %}>{{ x.name|truncatechars:32 }}</a></p>
+                                    <p><a class="text-white" href="{% url 'product_detail' x.id %}" {% if x.name|length > 32 %}title="{{ x.name }}"{% endif %}>{{ x.name|truncatechars:32 }}</a></p>
                                     <p class="text-white">By</p>
                                     <p><a class="text-white" href="{% url 'artist_detail' x.Artist_Display_Name %}">{{ x.Artist_Display_Name }}</a></p>
                                     <!-- delete/edit features -->
