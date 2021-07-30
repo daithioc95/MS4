@@ -51,10 +51,10 @@
                         <p><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                     </div>
                     <div class="col-12 col-sm-6">
-                        {% include "bag/quantity-form.html" %}
+                        {% include "bag/mob-quantity-form.html" %}
                     </div>
                 </div>
-                <!-- horizonal item sepater -->
+                <!-- horizonal item seperater -->
                 {% if not forloop.last %}
                 <div class="row">
                     <div class="col">
@@ -131,11 +131,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script>
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script>
