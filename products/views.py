@@ -22,9 +22,11 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                    )
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(Artist_Display_Name__icontains=query) | Q(Medium__icontains=query)
             products = products.filter(queries)
 
@@ -75,7 +77,9 @@ def all_artists(request):
                 if x.Period != "Edo period (1615–1868)":
                     if x.Period != "Meiji period (1868–1912)":
                         if x.Artist_Display_Name and x.image.url:
-                            other_artists.update({x.Artist_Display_Name: x.image.url})
+                            other_artists.update(
+                                {x.Artist_Display_Name: x.image.url}
+                                )
         except:
             pass
     if 'Period' in request.GET:
@@ -101,7 +105,9 @@ def artist_detail(request, artist_name):
                 if x.Period == y.Period:
                     if x.Artist_Display_Name != y.Artist_Display_Name:
                         if len(similar_artists) < 3:
-                            similar_artists.update({x.Artist_Display_Name: x.image.url})
+                            similar_artists.update(
+                                {x.Artist_Display_Name: x.image.url}
+                                )
     except:
         pass
 
@@ -119,7 +125,9 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    other_products = Product.objects.all().filter(Artist_Display_Name=product.Artist_Display_Name)
+    other_products = Product.objects.all().filter(
+                                Artist_Display_Name=product.Artist_Display_Name
+                                )
 
     context = {
         'product': product,
@@ -127,6 +135,7 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
 
 @login_required
 def add_product(request):
@@ -142,16 +151,20 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.'
+                )
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -168,7 +181,10 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                    request,
+                    'Failed to update product. Please ensure the form is valid.'
+                        )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -181,13 +197,14 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
