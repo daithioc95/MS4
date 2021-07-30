@@ -12,32 +12,37 @@
 {% block content %}
 <div class="overlay"></div>
 {% with products|first as product %}
-<div class="">
-
+<div>
+    <!-- if artists image available use image as background -->
     {% if product.image %}
         <img class="artist-welcome-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+    <!-- otherwise use white background -->
     {% else %}
-        <div class="artist-welcome-no-image">
+        <div class="artist-welcome-no-image"></div>
     {% endif %}
+    <!-- artist name and detials -->
     <div class="artist-info text-center">
         <h2 class="mb-3">{{ artist }}</h2>
-        <!-- <div class="dots">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div> -->
-        {% if product.Artist_Display_Bio %}<h5 class="artist-detail mt-10"><strong>Bio: </strong>{{ product.Artist_Display_Bio }}</h5>{% endif %}
-        {% if product.Medium %}<h5 class="artist-detail mt-10"><strong>Mediums: </strong>{{ product.Medium }}</h5>{% endif %}
-        {% if product.Artist_Wikidata_URL %}<a href="{{ product.Artist_Wikidata_URL }}" target="_blank">
+        {% if product.Artist_Display_Bio %}
+        <h5 class="artist-detail mt-10"><strong>Bio: </strong>{{ product.Artist_Display_Bio }}</h5>
+        {% endif %}
+        {% if product.Medium %}
+        <h5 class="artist-detail mt-10"><strong>Mediums: </strong>{{ product.Medium }}</h5>
+        {% endif %}
+        <!-- external links -->
+        {% if product.Artist_Wikidata_URL %}
+        <a href="{{ product.Artist_Wikidata_URL }}" target="_blank">
             <h5 class="artist-detail mt-2">Artist Wikkidata</h5>
-        </a>{% endif %}
-        {% if product.Artist_ULAN_URL %}<a href="{{ product.Artist_ULAN_URL }}" target="_blank">
+        </a>
+        {% endif %}
+        {% if product.Artist_ULAN_URL %}
+        <a href="{{ product.Artist_ULAN_URL }}" target="_blank">
             <h5 class="artist-detail mt-2">Artist getty</h5>
-        </a>{% endif %}
+        </a>
+        {% endif %}
     </div>
-    
-    {% endwith %}
-</div>
+</div>   
+{% endwith %}
 
 <div class="container-fluid">
     <!-- Artist Products heading -->
@@ -58,14 +63,15 @@
                         {{ products|length }} Products by {{ artist }}
                     </p>
                 </div>
-
             </div>
-            <div class="card-columns">
 
+            <div class="card-columns">
                 <div class="row products-row">
                     {% for product in products %}
+                    <!-- cards for all artists products -->
                     <div class="card border-0">
                         <div class="image-wrap">
+                            <!-- product image -->
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
                                 <img id="myImg" class="product-image card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -75,32 +81,30 @@
                                 <img class="product-image card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
-                                <i id="{{ product.id }}" class="fas fa-info-circle mobile-product-info d-lg-none fa-2x mt-2"></i>
-                                <div id="{{ product.id }}-mobile-overlay" class="product-overlay">
-                                    <div class="text text-white">
-                                        <p><a class="text-white" href="{% url 'product_detail' product.id %}" {% if product.name|length > 32 %}title="{{ product.name }}"{% endif %}>{{ product.name|truncatechars:32 }}</a></p>
-                                        <p class="text-white">By</p>
-                                        <p class="text-white">{{ product.Artist_Display_Name }}</p>
-                                        {% if request.user.is_superuser %}
-                                        <small class="ml-0">
-                                            <a href="{% url 'edit_product' product.id %}"><i class="fas fa-pencil-alt"></i></a> |
-                                            <a href="{% url 'delete_product' product.id %}" class="confirmation"><i class="far fa-trash-alt"></i></a>
-                                        </small>
-                                        {% endif %}
-                                    </div>
+                            <!-- mobile info icon -->
+                            <i id="{{ product.id }}" class="fas fa-info-circle mobile-product-info d-lg-none fa-2x mt-2"></i>
+                            <!-- product info overlay -->
+                            <div id="{{ product.id }}-mobile-overlay" class="product-overlay">
+                                <div class="text text-white">
+                                    <p><a class="text-white" href="{% url 'product_detail' product.id %}" {% if product.name|length > 32 %}title="{{ product.name }}"{% endif %}>{{ product.name|truncatechars:32 }}</a></p>
+                                    <p class="text-white">By</p>
+                                    <p class="text-white">{{ product.Artist_Display_Name }}</p>
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-0">
+                                        <a href="{% url 'edit_product' product.id %}"><i class="fas fa-pencil-alt"></i></a> |
+                                        <a href="{% url 'delete_product' product.id %}" class="confirmation"><i class="far fa-trash-alt"></i></a>
+                                    </small>
+                                    {% endif %}
                                 </div>
+                            </div>
                         </div>
-                        
+                        <!-- product price -->
                         <div class="card-body pb-3 pt-1">
-                            <!-- <p class="mb-0">{{ product.name }}</p> -->
                             <p class="pricing mb-0 text-left font-weight-bold">${{ product.price }}</p>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -118,19 +122,20 @@
     <div class="row mt-1 mb-2 {% if not similar_artists %}d-none{% endif %}">
         <div class="product-container col-10 offset-1">
             <div class="row">
-        {% for key, value in similar_artists.items %}
-        <div class="artist-card card col-lg-4 col-md-6 border-0 mb-5">
-            <a href="{% url 'artist_detail' key %}">
-                <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
-                <p class="artist-overlay-text text-white">{{ key }}</p>
-            </a>
+                {% for key, value in similar_artists.items %}
+                <div class="artist-card card col-lg-4 col-md-6 border-0 mb-5">
+                    <a href="{% url 'artist_detail' key %}">
+                        <img class="artist-image card-img-top" src="{{ value }}" alt="Card image cap">
+                        <p class="artist-overlay-text text-white">{{ key }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
-    </div>
-</div>
 {% endif %}
 </div>
+<!-- back to top button -->
 <div class="btt-button shadow-sm rounded-0 border border-navy">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-up text-navy mx-auto my-auto"></i>
@@ -141,14 +146,15 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-    // https://stackoverflow.com/questions/21121957/add-class-based-on-height-of-element
+    // function to reduce text margin for low height images
+    // credit https://stackoverflow.com/questions/21121957/add-class-based-on-height-of-element
     function low_height_image() {
         $(".product-overlay").each(function () { // do this for each matched item
             if ($(this).height() < 225) { // search for <p> in context of current element
                 $("p", this).addClass('low-height');
-                console.log("Added "+$(this).height());
+                console.log("Added " + $(this).height());
             }
-            else{
+            else {
                 console.log("skip")
             }
         })
@@ -160,14 +166,16 @@
     })
 </script>
 <script type="text/javascript">
-    $("i.fa-info-circle").click(function(ev){
-      var product_id = "#" + $(this).attr('id')
-      $(product_id).toggleClass("info-icon-on");
-      var textbox = "#" + $(this).attr('id') + "-mobile-overlay"
-      $(textbox).toggleClass("show-box");
-  })
-  </script>
-  <script type="text/javascript">
+    // when info icon selected on small screen, show product details
+    $("i.fa-info-circle").click(function (ev) {
+        var product_id = "#" + $(this).attr('id')
+        $(product_id).toggleClass("info-icon-on");
+        var textbox = "#" + $(this).attr('id') + "-mobile-overlay"
+        $(textbox).toggleClass("show-box");
+    })
+</script>
+<script type="text/javascript">
+    // defensive programming for delete product feature
     var elems = document.getElementsByClassName('confirmation');
     var confirmIt = function (e) {
         if (!confirm('Are you sure you want to delete this product?')) e.preventDefault();
