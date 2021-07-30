@@ -120,7 +120,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     // function to reduce text margin for low height images
     // credit https://stackoverflow.com/questions/21121957/add-class-based-on-height-of-element
     function low_height_image() {
@@ -135,12 +135,12 @@
         })
     };
 </script>
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
 </script>
-<script type="text/javascript">
+<script>
     // activate sortbar
     $('#sort-selector').change(function () {
         var selector = $(this);
@@ -163,7 +163,7 @@
         }
     })
 </script>
-<script type="text/javascript">
+<script>
     // when info icon selected on small screen, show product details
     $("i.fa-info-circle").click(function (ev) {
         var product_id = "#" + $(this).attr('id')
@@ -172,7 +172,7 @@
         $(textbox).toggleClass("show-box");
     })
 </script>
-<script type="text/javascript">
+<script>
     // defensive programming for delete product feature
     var elems = document.getElementsByClassName('confirmation');
     var confirmIt = function (e) {
