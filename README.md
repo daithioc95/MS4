@@ -4,6 +4,10 @@
 <a href="https://ms4-ukiyo-e.herokuapp.com/" target="_blank">Visit Website</a><br>
 Ukiyo-e is an ecommerce site desiccated to selling replica Japanese art prints. Users can purchase the prints using online payments. Store owners can also be granted with the capability to add prints to the database to meet consumer needs. Visitors can browse and search prints easily and intuitively while also gathering information on the product such as the artist, medium, date or period, the dimensions along with links to external websites. Products can also be searched for by artists and users can browse individual artist information and products vias the artists’ section.
 
+#### SuperUser Access
+Username: titilek325
+Password: pppaptwgb99
+
 ## UX
 
 When designing this website, I followed the 5 levels of development, a well know web design process mentioned in Jesse James Garrett's book, The Elements of User Experience. The planning of each of these planes are to follow the same order as below with each plane aligning to the previous plane’s requirements. This ensures that the main objectives for the website identified in the Strategy plane aligns all the way through to the Surface Plane which identifies the actual features on the website.
