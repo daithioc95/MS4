@@ -191,7 +191,16 @@ Used to reduce image quality without affecting the user experiencing while reduc
 
 Testing is done in a seperate <a href= "/workspace/MS4/documentation/Testing.md">Testing.md</a> file
 
-### Data 
+### Data Schemes
+This database for the products of this project was sourced from the met musuem (further info can be found in the credits section).
+The database is stored by Heroku Postgres and the deployment instructions are mentioned in the next section.
+The relationship between the products models can be seen in the <a href= "/workspace/MS4/media/images/readme/models_data_schema.JPG">Data Schema here</a>
+Regarding the relaitonship between the products, artists and Period, I also outlined in the following diagram.
+Although no models were created for these, I used python and the product keys to implement these relationships.
+The met museum database was rich in data for each product that many relationships could be created.
+The product period was used a means to categorise the products and artists.
+
+<img src="/workspace/MS4/media/images/readme/products_data_schema.JPG">
 
 ### Deployment 
 
@@ -199,7 +208,7 @@ Testing is done in a seperate <a href= "/workspace/MS4/documentation/Testing.md"
 
 -	Go to Heroku.com
 -	Set up and account, create an app with a unique name by following the instructions and enter any relevant information requested.
--	Go to the “Resounces” tab and select Heroku Postgres
+-	Go to the “Resources” tab and select Heroku Postgres
 -	Using the Gitpod terminal enter the below installations
     -   pip3 install dj_database_url
     -   pip3 install psycopg2-binary
