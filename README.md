@@ -1,8 +1,8 @@
 # Full Stack Frameworks with Django Milestone Project
-<img src="static/images/wireframes/ms4_responsive_image.JPG">
+<img src="media/images/readme/ms4_responsive_image.JPG">
 
 <a href="https://ms4-ukiyo-e.herokuapp.com/" target="_blank">Visit Website</a><br>
-Ukiyo-e is an ecommerce site desiccated to selling replica Japanese art prints. Users can purchase the prints using online payments. Store owners can also be granted with the capability to add prints to the database to meet consumer needs. Visitors can browse and search prints easily and intuitively while also gathering information on the product such as the artist, medium, date or period, the dimensions along with links to external websites. Products can also be searched for by artists and users can browse individual artist information and products vias the artists’ section.
+Ukiyo-e is an ecommerce site dedicated to selling replica Japanese art prints. Visitors can purchase prints using online payments. Store owners can also put prints up for sale to meet consumer needs. Visitors can browse and search prints easily and intuitively while also gathering additional information on the paintings and artists. Products can also be searched for and users can browse individual artist information and products vias the artists’ section.
 
 #### SuperUser Access
 Username: titilek325
@@ -58,18 +58,15 @@ The first phase of the website will consist of 12 pages.
 
 #### Phase 2
 
-Phase 2 will consist of upgrading the current pages. This will include increasing the number of author pictures. Allow for user profile image uploads and other functionalities below.
+Seeing as the first phase has the functionality for a full working ecommerce site, phase 2 will be focused on creating more of a community environment between users. This includes more personalisation on individual profiles for both sellers and buyers such as a public profile page, ratings for sellers and a feed area with updates from sellers and buyers based on activity they choose to share such as recently purchased products or favourite artists.
 
-- Users Public Profile page
-  - Allow user to upload profile picture
-- Quote based on whether
-  - Deliver a quote to the user depending on the weather in their location. For example, if it’s sunny/rainy, search the “Happiness”/”Inspiration tag.
-- Improve individual book images
-  - I used to materialize books icon with a rotation of colours for phase 1 but for phase 2 I intend to implement actual book images to give a more realistic effect.
-- Improve Author profile
-  - Can be done with Author profile information and uploading a new collection with information such as Author, DOB, Nationality etc.
-- Allow for users to add their own quotes
-  - Improve and increase the quotes database by allowing users to add quotes to the database.
+-	Product rating
+-	Product comments section
+-	Artist Rating
+-	Artist comments section
+-	Users Public Profile page
+-	Users Public feed and activity
+
 
 ### Structure Plane
 
@@ -77,9 +74,9 @@ The Structure plane is focused on taking the content selected from the scope pla
 
 #### Design Process
 
--	As the website is a collection of artwork images of all colours and of both landscape and portrait orientation, I decided the best way to deliver this is to input a masonry design in the approach to the products page for desktop and for mobile, displaying individual products inline 
+-	As the website is a collection of both landscape and portrait artworks I decided the best way to deliver this is to input a masonry design in the approach to the products page for desktop and for mobile, displaying individual products inline.
 -	I decided to show the price only for each product to avoid excess of text info. Should the user want additional information for any products, they can hover on desktop or click the info button on mobile and the artwork title and artist will appear in a production overlay
--	I decided to base the colour theme for the website off one of the most iconic ukiyo-e artworks, The Great Wave by Hokusai. The image features as the homepage welcome image. The three colour I took was the navy, light blue, and gold. I used the navy as the primary colour for font, buttons, and icons throughout, the navy is used subtly as border and text shadows to add depth to features and finally I used the gold as the border for individual products on the products page as a similar colour feature in many of the prints.
+-	I decided to base the colour theme for the website off one of the most iconic ukiyo-e artworks, The Great Wave by Hokusai. The image features as the homepage welcome image. The three colours I adopted is the navy, light blue, and gold. I used the navy as the primary colour for font, buttons, and icons throughout, the light blue is used subtly as border and text shadows to add depth to features and finally I used the gold as the border for individual products on the products page as a similar colour feature in the canvas of many of the prints.
 -	For the individual product page, I followed a standard ecommerce web design with the image on the left and information and functionality on the right.
 -	For Artists, as this was informative only (as opposed to the functionality for product details) I took a different approach and implemented one of the artists images as the background image behind information of the artist which dedicates the pages theme to the artists artwork.
 -	I choose a comic book like Neucha font because the artwork featured has influenced Japanese/manga style over the centuries and I feel they complement each other immensely.
@@ -91,45 +88,45 @@ Once the sections and layout has been identified as in the previous planes, we c
 
 #### Index.html
 - Desktop
-<img src="/workspace/MS4/media/images/wireframes/homepage_desktop.png">
+<img src="media/images/wireframes/homepage_desktop.png">
 
 - Mobile
-<img src="/workspace/MS4/media/images/wireframes/homepage_mobile.png">
+<img src="media/images/wireframes/homepage_mobile.png">
 
 #### Products
 - Desktop
-<img src="/workspace/MS4/media/images/wireframes/products_desktop.png">
+<img src="media/images/wireframes/products_desktop.png">
 
 - Mobile
-<img src="/workspace/MS4/media/images/wireframes/products_mobile.png">
+<img src="media/images/wireframes/products_mobile.png">
 
 #### Product detail
 - Desktop
-<img src="/workspace/MS4/media/images/wireframes/indiv_painting_desktop.png">
+<img src="media/images/wireframes/indiv_painting_desktop.png">
 
 - Mobile
-<img src="/workspace/MS4/media/images/wireframes/indiv_painting_mobile.png">
+<img src="media/images/wireframes/indiv_painting_mobile.png">
 
 #### Artists
 - Desktop
-<img src="/workspace/MS4/media/images/wireframes/artists_desktop.png">
+<img src="media/images/wireframes/artists_desktop.png">
 
 - Mobile
-<img src="/workspace/MS4/media/images/wireframes/artists_mobile.png">
+<img src="media/images/wireframes/artists_mobile.png">
 
 #### Artist detail
 - Desktop
-<img src="/workspace/MS4/media/images/wireframes/indiv_artist_desktop.png">
+<img src="media/images/wireframes/indiv_artist_desktop.png">
 
 - Mobile
-<img src="/workspace/MS4/media/images/wireframes/indiv_painting_mobile.png">
+<img src="media/images/wireframes/indiv_painting_mobile.png">
 
 #### About
 - Desktop
-<img src="/workspace/MS4/media/images/wireframes/about_desktop.png">
+<img src="media/images/wireframes/about_desktop.png">
 
 - Mobile
-<img src="/workspace/MS4/media/images/wireframes/about_mobile.png">
+<img src="media/images/wireframes/about_mobile.png">
 
 
 ### Surface Plane
@@ -163,9 +160,10 @@ Features
     -   Mobile info appearance
     -   Delete product defensive programming
     -   Product Sort selector
-Python
-Used python for the backend elements of the Website used to interact with the database and feed data depending on users’ interactions.
-Used to integration with Django by creating the views for each app.
+    -   Quantity inout for add to bag feature
+-   Python
+    -   Python was used for the backend elements of the Website to interact with the database and feed data depending on users’ interactions.
+It was also used to integration with Django by creating the views for each app.
 -	Django
     -   Allauth
     -   Crispyforms
@@ -222,18 +220,19 @@ Used to reduce image quality without affecting the user experiencing while reduc
 
 ### Testing
 
-Testing is done in a seperate <a href= "/workspace/MS4/documentation/Testing.md">Testing.md</a> file
+Testing is done in a seperate <a href= "documentation/Testing.md">Testing.md</a> file
 
 ### Data Schemes
 This database for the products of this project was sourced from the met musuem (further info can be found in the credits section).
 The database is stored by Heroku Postgres and the deployment instructions are mentioned in the next section.
-The relationship between the products models can be seen in the <a href= "/workspace/MS4/media/images/readme/models_data_schema.JPG">Data Schema here</a>
+The relationship between the products models can be seen in the 
+<a href= "media/images/readme/models_data_schema.JPG">Data Schema here</a>
 Regarding the relaitonship between the products, artists and Period, I also outlined in the following diagram.
 Although no models were created for these, I used python and the product keys to implement these relationships.
 The met museum database was rich in data for each product that many relationships could be created.
 The product period was used a means to categorise the products and artists.
 
-<img src="/workspace/MS4/media/images/readme/products_data_schema.JPG">
+<img src="media/images/readme/products_data_schema.JPG">
 
 ### Deployment 
 
@@ -266,8 +265,10 @@ The product period was used a means to categorise the products and artists.
 <img src="media/images/deployment/postgres_logic.JPG">
 
 -	Next we’ll need to install gunicorn as our web server and freeze the requirements using the below commands
-    -   pip3 install gunicorn
-    -   pip3 freeze > requirements.txt
+```
+pip3 install gunicorn
+pip3 freeze > requirements.txt
+```
 -	Create a procfile to tell Heroku to create a web dyno which will run gunicorn and serve our Django app.
     -   web: gunicorn APP-NAME.wsgi:application
 -	To ensure Heroku doesn’t try to collect static files when we deploy, login to Heroku using you login when following the below commands
@@ -334,8 +335,8 @@ Deployment to AWS is required which was used to host static files and images.
       "ExposeHeaders": []
   }
 ]
-
 ```
+
     -   Go to the Bucket policy tab and select Policy Generater
     -   For Select type of policy, enter S3 Bucket Policy
     -   Allow all principals by inputing “*”

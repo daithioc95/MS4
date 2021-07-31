@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">About</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    <!-- About Section text -->
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-10 offset-1">
+            <h5>Somethings gone wrong :/ Please revert to <a href="{ url 'home' %}">the homepage</a> and try again</h5>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
