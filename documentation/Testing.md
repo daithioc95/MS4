@@ -265,16 +265,19 @@ Tested and working consistently on the below browsers for desktop.
 
 ### Security Testing
 I conducted security testign by attempting to access the below links for logged out users.
+The results are as intended and as per the below table. When these URLs were attempted to be accessed by a logged
+out user, they were always redirected to the sign in page. For normal logged in users, they could access the Profile page only.
+When they attempted to access the add, edit and delete page they recieved an error stating only store owners could do this.
+And finally for Super users they could access all 4 of the URLS.
 
-| Page          | Logged Out    | Logged In     | Superuser     |
+| Page          | Logged Out    | Normal User   | Super User    |
 | ------------- | ------------- | ------------- |-------------  |
-| Profile       | Content Cell  |               |               |
-| add           | Content Cell  |               |               |
-| edit          | Content Cell  |               |               |
-| delete        | Content Cell  |               |               |
+| Profile       | Sign-in Page  |  Accessed     |  Accessed     |
+| add           | Sign-in Page  | Error message |  Accessed     |
+| edit          | Sign-in Page  | Error message |  Accessed     |
+| delete        | Sign-in Page  | Error message |  Accessed     |
 
-URL | Logged Out | Logged In | Superuser
-logged in only
+
 Profile: https://ms4-ukiyo-e.herokuapp.com/profile/
 
 superuser only
