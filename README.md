@@ -89,15 +89,48 @@ The Structure plane is focused on taking the content selected from the scope pla
 
 Once the sections and layout has been identified as in the previous planes, we can get started with the Skeleton Plane. The Skeleton Plane outlines the arrangement of each section on the website and the best way to design these are by creating wireframes. I initially drew these wireframes before creating by using Balsamiq software.
 
--	Index.html
--	Products
--	Product detail
--	Artists
--	Artist detail
--	About
--	My Profile
--	Shopping bag
--	Checkout
+#### Index.html
+- Desktop
+<img src="/workspace/MS4/media/images/wireframes/homepage_desktop.png">
+
+- Mobile
+<img src="/workspace/MS4/media/images/wireframes/homepage_mobile.png">
+
+#### Products
+- Desktop
+<img src="/workspace/MS4/media/images/wireframes/products_desktop.png">
+
+- Mobile
+<img src="/workspace/MS4/media/images/wireframes/products_mobile.png">
+
+#### Product detail
+- Desktop
+<img src="/workspace/MS4/media/images/wireframes/indiv_painting_desktop.png">
+
+- Mobile
+<img src="/workspace/MS4/media/images/wireframes/indiv_painting_mobile.png">
+
+#### Artists
+- Desktop
+<img src="/workspace/MS4/media/images/wireframes/artists_desktop.png">
+
+- Mobile
+<img src="/workspace/MS4/media/images/wireframes/artists_mobile.png">
+
+#### Artist detail
+- Desktop
+<img src="/workspace/MS4/media/images/wireframes/indiv_artist_desktop.png">
+
+- Mobile
+<img src="/workspace/MS4/media/images/wireframes/indiv_painting_mobile.png">
+
+#### About
+- Desktop
+<img src="/workspace/MS4/media/images/wireframes/about_desktop.png">
+
+- Mobile
+<img src="/workspace/MS4/media/images/wireframes/about_mobile.png">
+
 
 ### Surface Plane
 
