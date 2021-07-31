@@ -7,7 +7,7 @@
 -   Go to the website homepage.
 -   Click the “Shop Now” button
 
-<img src="/workspace/MS4/media/images/user_story_testing/homepage_shop_now.JPG">
+<img src="media/images/user_story_testing/homepage_shop_now.JPG">
 
 -   All Products will then appear.
 
