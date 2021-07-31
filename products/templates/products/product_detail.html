@@ -182,17 +182,17 @@
                 console.log("Added "+$(this).height());
             }
             else{
-                console.log("skip")
+                console.log("skip");
             }
-        })
-    };
+        });
+    }
 </script>
 <script>
     // when info icon selected on small screen, show product details
     $("i.fa-info-circle").click(function(ev){
-        var product_id = "#" + $(this).attr('id')
+        var product_id = "#" + $(this).attr('id');
         $(product_id).toggleClass("info-icon-on");
-        var textbox = "#" + $(this).attr('id') + "-mobile-overlay"
+        var textbox = "#" + $(this).attr('id') + "-mobile-overlay";
         $(textbox).toggleClass("show-box");
   })
 </script>

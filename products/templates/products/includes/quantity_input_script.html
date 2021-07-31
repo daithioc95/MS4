@@ -2,19 +2,20 @@
 
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId, mobile) {
+  	var currentValue;
+    var minusDisabled;
+    var plusDisabled;
         if (mobile == true){
-            var currentValue = parseInt($(`#mob-id_qty_${itemId}`).val());
-        }
-        else{
-            var currentValue = parseInt($(`#id_qty_${itemId}`).val());
-        }
-        var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > 98;
-        if (mobile == true){
+            currentValue = parseInt($(`#mob-id_qty_${itemId}`).val());
+            minusDisabled = currentValue < 2;
+            plusDisabled = currentValue > 98;
             $(`#mob-decrement-qty_${itemId}`).prop('disabled', minusDisabled);
             $(`#mob-increment-qty_${itemId}`).prop('disabled', plusDisabled);
         }
         else{
+            currentValue = parseInt($(`#id_qty_${itemId}`).val());
+            minusDisabled = currentValue < 2;
+            plusDisabled = currentValue > 98;
             $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
             $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
         }
