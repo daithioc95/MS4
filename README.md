@@ -4,10 +4,6 @@
 <a href="https://ms4-ukiyo-e.herokuapp.com/" target="_blank">Visit Website</a><br>
 Ukiyo-e is an ecommerce site dedicated to selling replica Japanese art prints. Visitors can purchase prints using online payments. Verified Store owners can also sell prints to meet consumer needs. Visitors can browse and search prints easily and intuitively while also gathering additional information on the paintings and artists. Products can also be searched for and users can browse individual artist information and products vias the artists’ section.
 
-### SuperUser Access
-For superuser access please use the below username and password. This will provide you with CRUD funcitonality.
--   Username: titilek325
--   Password: pppaptwgb99
 
 ## UX
 
